@@ -4,63 +4,65 @@
 
 
 
+```mermaid
+
 classDiagram
 
-&nbsp;   class Company {
+class Company {
 
-&nbsp;       -string name
+-string name
 
-&nbsp;       -string telephone
+-string telephone
 
-&nbsp;       +Company(string name, string telephone)
++Company(string name, string telephone)
 
-&nbsp;       +print() const void
++print() const void
 
-&nbsp;   }
-
-&nbsp;   
-
-&nbsp;   class Product {
-
-&nbsp;       -string name
-
-&nbsp;       -double unitPrice
-
-&nbsp;       +Product(string name, double unitPrice)
-
-&nbsp;       +~Product()
-
-&nbsp;       +getPrice() const double
-
-&nbsp;   }
-
-&nbsp;   
-
-&nbsp;   class Invoice {
-
-&nbsp;       -int invoiceNumber
-
-&nbsp;       -double invoiceTotal
-
-&nbsp;       -Company company
-
-&nbsp;       +Invoice(int invoiceNumber, string name, string telephone)
-
-&nbsp;       +~Invoice()
-
-&nbsp;       +add(int quantity, Product product) void
-
-&nbsp;       +print() const void
-
-&nbsp;   }
-
-&nbsp;   
-
-&nbsp;   Invoice \*-- Company : composition (has-a)
-
-&nbsp;   Invoice ..> Product : dependency (use-a)
+}
 
 
+
+class Product {
+
+-string name
+
+-double unitPrice
+
++Product(string name, double unitPrice)
+
++~Product()
+
++getPrice() const double
+
+}
+
+
+
+class Invoice {
+
+-int invoiceNumber
+
+-double invoiceTotal
+
+-Company company
+
++Invoice(int invoiceNumber, string name, string telephone)
+
++~Invoice()
+
++add(int quantity, Product product) void
+
++print() const void
+
+}
+
+
+
+Invoice \*-- Company : composition (has-a)
+
+Invoice ..> Product : dependency (use-a)
+
+```
 
 
 
