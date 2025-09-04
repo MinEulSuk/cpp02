@@ -31,8 +31,8 @@ classDiagram
         +print() void
     }
 
-    Invoice *-- Company : composition
-    Invoice ..> Product : dependency
+    Invoice *-- Company : composition (has-a)
+    Invoice ..> Product : dependency (use-a)
 ```
 
 
