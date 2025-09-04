@@ -5,63 +5,34 @@
 
 
 ```mermaid
-
 classDiagram
+    class Company {
+        -string name
+        -string telephone
+        +Company(string name, string telephone)
+        +print() void
+    }
 
-class Company {
+    class Product {
+        -string name
+        -double unitPrice
+        +Product(string name, double unitPrice)
+        +~Product()
+        +getPrice() double
+    }
 
--string name
+    class Invoice {
+        -int invoiceNumber
+        -double invoiceTotal
+        -Company company
+        +Invoice(int invoiceNumber, string name, string telephone)
+        +~Invoice()
+        +add(int quantity, Product product) void
+        +print() void
+    }
 
--string telephone
-
-+Company(string name, string telephone)
-
-+print() const void
-
-}
-
-
-
-class Product {
-
--string name
-
--double unitPrice
-
-+Product(string name, double unitPrice)
-
-+~Product()
-
-+getPrice() const double
-
-}
-
-
-
-class Invoice {
-
--int invoiceNumber
-
--double invoiceTotal
-
--Company company
-
-+Invoice(int invoiceNumber, string name, string telephone)
-
-+~Invoice()
-
-+add(int quantity, Product product) void
-
-+print() const void
-
-}
-
-
-
-Invoice \*-- Company : composition (has-a)
-
-Invoice ..> Product : dependency (use-a)
-
+    Invoice *-- Company : composition
+    Invoice ..> Product : dependency
 ```
 
 
