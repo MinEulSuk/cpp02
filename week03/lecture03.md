@@ -1,12 +1,14 @@
 ```mermaid
 classDiagram
-  Parent <|-- Child
-  class Parent {
-    +Parent()
-    +~Parent()*
+  Pokemon <|-- Pikachu
+  class Pokemon{
+    +Pokemon()
+    +~Pokemon()*
+    +attack()* void
   }
-  class Child {
-    +Child()
-    +~Child()
+  class Pikachu{
+    +Pikachu()
+    +~Pikachu()
+    +attack() void
   }
   ```
