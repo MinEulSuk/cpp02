@@ -5,17 +5,21 @@
 #include <string>
 using namespace std;
 
-// 베이스 클래스의 정의
+
 class Pokemon
 {
 public:
+	Pokemon() { cout << "기본(포켓몬) 생성자" << endl; }
+	~Pokemon() { cout << "부모클래스 (포켓몬) 소멸자" << endl; }
 	virtual void attack() const { cout << "공격" << endl; }
 };
 // 파생 클래스의 정의
 class Pikachu : public Pokemon // 상속 is-a 관계
 {
 public:
-	void attack() const override { cout << "전기 공격" << endl; }
+	Pikachu() { cout << "기본(피카츄) 생성자" << endl; }
+	~Pikachu() { cout << "자식클래스 (피카츄) 소멸자"<<endl; }
+	void attack() const { cout << "전기 공격" << endl; }
 };
 int main()
 {
