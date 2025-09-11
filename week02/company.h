@@ -7,9 +7,6 @@ private:
 	string telephone;
 	
 public:
-
-
-
 	Company(string name, string telephone);
 	void print() const;
 };
