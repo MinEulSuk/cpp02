@@ -29,11 +29,21 @@ int main()
 	Animal* pa = new Dog(); //자식클래스의 객체를 부모클래스 포인터로 참조 , 업캐스팅
 	pa->makeSound(); // 가상함수가 아니므로 부모클래스의 멤버함수 호출
 	cout << pa << endl;
-	Cat* pc = (Cat*)pa;//위험한 행동
-	pc->makeSound(); // 고양이가 출력되어야 하는데 강제 형변환으로 인해 잘못된 결과 출력 
+
+	//Cat* pc = dynamic_cast<Cat*>(pa); //safe 고양이클래스의 포인터가 강아지클래스의 메모리 주소를 참조하려고 하므로 다운캐스팅이 실패
+	Dog* pc = dynamic_cast<Dog*>(pa);
+	cout << pc << endl; // 상속관계에서 다운캐스팅이 실패하면 nullptr 반환
+	pc->makeSound();
 	cout << pc << endl;
 	delete pc;
 	pc = nullptr;
+
+
+	//Cat* pc = (Cat*)pa;//위험한 행동
+	//pc->makeSound(); // 고양이가 출력되어야 하는데 강제 형변환으로 인해 잘못된 결과 출력 
+	//cout << pc << endl;
+	//delete pc;
+	//pc = nullptr;
 
 
 
