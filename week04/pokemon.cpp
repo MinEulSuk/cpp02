@@ -1,4 +1,6 @@
+#pragma once
 #include "pokemon.h"
+#include "pikachu.h"
 
 Pokemon::Pokemon()
 {

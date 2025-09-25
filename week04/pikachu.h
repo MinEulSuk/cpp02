@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+#pragma once
 #include "pokemon.h"
 using namespace std;
 

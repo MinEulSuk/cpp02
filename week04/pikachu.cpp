@@ -1,3 +1,4 @@
+#pragma once
 #include "pikachu.h"
 
 Pikachu::Pikachu()
