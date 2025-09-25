@@ -8,9 +8,9 @@ using namespace std;
 
 class Animal {
 public:
-		void makeSound() {
-			cout << "동물이 소리를 냅니다.\n";
-		};
+	virtual void makeSound() {
+		cout << "동물이 소리를 냅니다.\n";
+	};
 };
 class Dog : public Animal {
 public:
@@ -26,14 +26,21 @@ public:
 };
 int main()
 {
-	Animal* pa = new Animal();
-	pa->makeSound();
-	delete pa; //delete와 nullptr의 차이점 : delete는 메모리를 해제하고, nullptr는 포인터를 null로 설정함
-	pa = nullptr; // delete를 해도 포인터는 여전히 주소를 가리키고 있기 때문에 nullptr로 설정해줌
+	Animal* pa = new Dog(); //자식클래스의 객체를 부모클래스 포인터로 참조 , 업캐스팅
+	pa->makeSound(); // 가상함수가 아니므로 부모클래스의 멤버함수 호출
 
-	pa = new Dog();
-	pa->makeSound();
+	Cat* pc = (Cat*)pa;//위험한 행동
+	pc->makeSound(); // 고양이가 출력되어야 하는데 강제 형변환으로 인해 잘못된 결과 출력 
+	delete pc;
+	pc = nullptr;
 
+
+
+	//Dog* pd = (Dog*)pa; //부모클래스 포인터를 자식클래스 포인터로 형변환 , 다운캐스팅 (old,C스타일)
+	//Dog* pd = dynamic_cast<Dog*>(pa); //다운캐스팅 (modern, C++스타일)
+	//pd->makeSound(); // 자식클래스의 멤버함수 호출
+	//delete pd;
+	//pd = nullptr;
 
 	return 0;
 }
