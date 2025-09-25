@@ -26,7 +26,7 @@ public:
 };
 int main()
 {
-	Animal animal;//순수	 가상 함수는 객체 생성 불가
+	Animal animal;//순수	 가상 함수가 한개 이상 존재하면 객체 생성 불가
 	animal.makeSound();
 
 
