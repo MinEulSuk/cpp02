@@ -26,10 +26,14 @@ public:
 };
 int main()
 {
-	Animal a;
-	Dog d;
+	Animal* pa = new Animal();
+	pa->makeSound();
+	delete pa; //delete와 nullptr의 차이점 : delete는 메모리를 해제하고, nullptr는 포인터를 null로 설정함
+	pa = nullptr; // delete를 해도 포인터는 여전히 주소를 가리키고 있기 때문에 nullptr로 설정해줌
 
-	cout << typeid(d).name() << endl;
-	d.makeSound();
+	pa = new Dog();
+	pa->makeSound();
+
+
 	return 0;
 }
