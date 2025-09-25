@@ -2,7 +2,7 @@
 classDiagram
     class Animal {
         <<abstract>>
-        +makeSound()* = 0
+        +makeSound()* 순수가상함수
     }
     
     class Dog {
@@ -15,6 +15,4 @@ classDiagram
     
     Animal <|-- Dog : implements
     Animal <|-- Cat : implements
-    
-    note for Animal "Abstract class with pure virtual function
   ```
