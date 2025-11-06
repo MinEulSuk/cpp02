@@ -9,9 +9,29 @@ using namespace std;
 
 int main()
 {
-    DynamicArray da1(5);
+    
+	try {
+		DynamicArray da1(5);
+		da1.SetAt(0, 100);
+		da1.SetAt(4, -11);
+		//da1.SetAt(10, 9);//메모리 범위는 5인데 10번째 인덱스에 접근
+		//da1.SetAt(-3, 1); // 예외
 
-	da1.SetAt(0,100);
-    da1.SetAt(4, -11);
+
+		cout << da1.GetAt(0) << endl;
+		cout << da1.GetAt(4) << endl;
+		//cout << da1.GetAt(7) << endl;//메모리 범위는 5인데 7번째 인덱스에 접근
+	}
+	catch (int ex) {
+		cout << "인덱스 범위를 벗어났습니다.\n";
+	}
+	catch (const char* err) {
+		cout << "메모리 오류\n";
+		cout << "에러코드 : " <<err;
+	}
+
+
+
+
     return 0;
 }
