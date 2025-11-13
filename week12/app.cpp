@@ -4,6 +4,7 @@
  **************************************************************/
 #include <iostream>
 #include "DynamicArray.h"
+#include "MyException.h"
 using namespace std;
 
 
@@ -20,18 +21,14 @@ int main()
 
 		cout << da1.GetAt(0) << endl;
 		cout << da1.GetAt(4) << endl;
-		cout < endl;
+		cout << endl;
 		cout << da1.GetAt(7) << endl;//메모리 범위는 5인데 7번째 인덱스에 접근
 	}
-	catch (int ex) {
-		cout << "인덱스 범위를 벗어났습니다.\n";
-	}
-	catch (bool err) {
-		cout << "인덱스 범위를 벗어났습니다. bool\n";
-	}
-	catch (const char* err) {
-		cout << "메모리 오류\n";
-		cout << "에러코드 : " <<err;
+	catch (const MyException& err) { //문자열 리터럴이면 널문자 앞까지 찍기
+		//const 타입 맞춰줘야함
+		cout << "에러코드 : " <<err.getErrorMessage() << "\n";
+		cout << "에러메시지 : " << err.getErrorCode() << "\n";
+		cout << "에러주소 : " << err.getErrorAddress() << "\n";
 	}
 	catch (...) {
 		cout << "런타임 오류 발생\n";
