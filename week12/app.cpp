@@ -5,6 +5,8 @@
 #include <iostream>
 #include "DynamicArray.h"
 #include "MyException.h"
+#include "MyindexOutOfBoundException.h"
+#include "MyMemoryException.h"
 using namespace std;
 
 
@@ -21,7 +23,7 @@ int main()
 
 		cout << da1.GetAt(0) << endl;
 		cout << da1.GetAt(4) << endl;
-		cout << endl;
+		//cout << endl;
 		cout << da1.GetAt(7) << endl;//메모리 범위는 5인데 7번째 인덱스에 접근
 	}
 	catch (const MyException& err) { //문자열 리터럴이면 널문자 앞까지 찍기

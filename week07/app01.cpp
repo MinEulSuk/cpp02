@@ -25,7 +25,7 @@ class UndergraduateDormitoryStudent
 int main() {
 	UndergraduateDormitoryStudent uds;
 	//uds.warn(); // 다중상속 시 어느 부모의 warn함수를 호출할 지 모호함
-	uds.DormitoryStudent::warn();
+	uds.DormitoryStudent::warn();//명시하면 괜찮음
 	uds.gpa = 3.9;
 	uds.roomNumber = 201;
 	//부모 객체는 상관없으나 양쪽에서 상속을 받으면 다이아몬드 문제로 에러
